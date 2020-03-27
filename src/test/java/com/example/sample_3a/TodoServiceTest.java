@@ -69,7 +69,7 @@ public class TodoServiceTest {
 
         Assertions.assertThrows(
                 InvalidParameterException.class,    // assert : 원하는 결과
-                () -> todoService.add(request)    // act    : 행동
+                () -> todoService.add(request)      // act    : 행동
         );
     }
 
