@@ -1,5 +1,6 @@
-package com.example.sample_3a.api;
+package com.example.sample_3a.api.repository;
 
+import com.example.sample_3a.api.entity.Todo;
 import org.springframework.stereotype.Repository;
 
 /**
