@@ -49,11 +49,14 @@ public class TodoServiceTest {
                 .title(request.getTitle())
                 .content(request.getContent())
                 .build();
-        // stubbing
+
+        // stubbing : mock 의 행동을 정의
         when(todoRepository.add(any(Todo.class)))
                 .thenReturn(todo);
+
         // act : 행동
         final String todoId = todoService.add(request);
+
         // assert : 원하는 결과
         assertNotEquals("", todoId);
         assertNotEquals(null, todoId);
@@ -78,6 +81,8 @@ public class TodoServiceTest {
                 .title("존재하지 않는 데이터의")
                 .content("수정 요청")
                 .build();
+
+        // stubbing : mock 의 행동을 정의
         when(todoRepository.find(anyString()))
                 .thenReturn(Optional.empty());
 
@@ -99,6 +104,5 @@ public class TodoServiceTest {
                 ()-> todoService.modify(request)    // act    : 행동
         );
     }
-
 
 }
