@@ -12,8 +12,8 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
-    public String write(Todo writeRequest) {
+    public Todo write(Todo writeRequest) {
 
-        return todoRepository.save(writeRequest).getId();
+        return todoRepository.save(writeRequest);
     }
 }
