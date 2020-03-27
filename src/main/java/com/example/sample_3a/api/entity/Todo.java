@@ -1,6 +1,7 @@
 package com.example.sample_3a.api.entity;
 
 import com.example.sample_3a.api.exception.InvalidParameterException;
+import com.example.sample_3a.api.form.TodoForm.Request;
 import lombok.Builder;
 import lombok.Data;
 
@@ -20,7 +21,8 @@ public class Todo {
     private String content;
 
     @Builder
-    public Todo(String title, String content) {
+    public Todo(String id, String title, String content) {
+        this.id = id;
         this.title = title;
         this.content = content;
     }
@@ -32,5 +34,10 @@ public class Todo {
         }catch (Exception e) {
             throw new InvalidParameterException("NULL 값이 존재합니다");
         }
+    }
+
+    public void update(Request.Modify modify) {
+        this.title = modify.getTitle();
+        this.content = modify.getContent();
     }
 }
