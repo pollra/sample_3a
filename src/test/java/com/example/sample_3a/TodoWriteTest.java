@@ -1,8 +1,8 @@
 package com.example.sample_3a;
 
-import com.example.sample_3a.api.Todo;
-import com.example.sample_3a.api.TodoRepository;
-import com.example.sample_3a.api.TodoService;
+import com.example.sample_3a.api.entity.Todo;
+import com.example.sample_3a.api.repository.TodoRepository;
+import com.example.sample_3a.api.service.TodoService;
 import com.example.sample_3a.api.exception.InvalidParameterException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -31,7 +31,7 @@ public class TodoWriteTest {
     }
 
     @Test
-    void 정상적인_요청으로_TODO_작성_요청을_수행함(){
+    void 정상적인_요청으로_TODO_작성_요청을_수행함() throws Exception {
         // arrange : 객체 선언
         final Todo request = Todo.builder()
                 .title("정상적인")
@@ -52,7 +52,7 @@ public class TodoWriteTest {
     }
 
     @Test
-    void 비정상적인_파라미터로_요청을_받은_경우_InvalidParameterException이_발생() {
+    void 비정상적인_파라미터로_요청을_받은_경우_InvalidParameterException이_발생(){
         // arrange : 객체 선언
         final Todo request = Todo.builder().build();
 
